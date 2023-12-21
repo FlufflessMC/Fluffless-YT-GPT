@@ -25,8 +25,8 @@ if (!MODEL_NAME) {
 }
 
 // init global variables
-const MAX_LENGTH = 399
-let file_context = "You are a helpful Twitch Chatbot."
+const MAX_LENGTH = 199
+let file_context = "You are a helpful YouTube Chatbot."
 let last_user_message = ""
 
 const messages = [
