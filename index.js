@@ -25,12 +25,12 @@ if (!MODEL_NAME) {
 }
 
 // init global variables
-const MAX_LENGTH = 150
+const MAX_LENGTH = 180
 let file_context = "You are a helpful YouTube Chatbot."
 let last_user_message = ""
 
 const messages = [
-    {role: "system", content: "You are a helpful Twitch Chatbot."}
+    {role: "system", content: "You are a helpful YouTube Chatbot."}
 ];
 
 console.log("GPT_MODE is " + GPT_MODE)
@@ -96,8 +96,8 @@ app.get('/gpt/:text', async (req, res) => {
         const response = await openai.createChatCompletion({
             model: MODEL_NAME,
             messages: messages,
-            temperature: 0.7,
-            max_tokens: 256,
+            temperature: 0.9,
+            max_tokens: 200,
             top_p: 0.95,
             frequency_penalty: 0,
             presence_penalty: 0,
@@ -112,7 +112,7 @@ app.get('/gpt/:text', async (req, res) => {
             //Check for Twitch max. chat message length limit and slice if needed
             let sliced_agent_response = ""
             if(agent_response.length > MAX_LENGTH){
-                console.log("Agent answer exceeds twitch chat limit. Slicing to first 399 characters.")
+                console.log("Agent answer exceeds YouTube chat limit. Slicing to first 180 characters.")
                 sliced_agent_response = agent_response.slice(0, MAX_LENGTH)
                 // save the other part of the message for the next response
                 last_user_message = agent_response.slice(MAX_LENGTH)
