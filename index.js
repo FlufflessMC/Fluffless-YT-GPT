@@ -25,7 +25,7 @@ if (!MODEL_NAME) {
 }
 
 // init global variables
-const MAX_LENGTH = 199
+const MAX_LENGTH = 150
 let file_context = "You are a helpful YouTube Chatbot."
 let last_user_message = ""
 
